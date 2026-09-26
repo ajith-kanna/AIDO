@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Background = () => {
   return (
-    <div className="h-screen w-screen bg-primary relative overflow-hidden">
+    <div className="h-screen w-screen bg-primary absolute overflow-hidden -z-10">
 
       <motion.div
           aria-hidden="true"
