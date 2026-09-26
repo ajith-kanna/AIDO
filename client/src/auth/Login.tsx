@@ -1,9 +1,14 @@
 import { useState } from "react";
-import { signInWithPopup } from "firebase/auth";
+import {
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth, google } from "./firebase";
 
 const Login = () => {
   const [user, setUser] = useState<unknown>(null);
+  const [ep, setEp] = useState({ email: "", password: "" });
 
   const handleClick = async () => {
     try {
@@ -15,6 +20,28 @@ const Login = () => {
       console.error(error.message);
     }
   };
+
+  async function loginWithEmail() {
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        ep.email,
+        ep.password,
+      );
+
+      await sendEmailVerification(result.user);
+      alert("verification mail sent");
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  function handleChange(e) {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setEp((prev) => {
+      return { ...prev, [name]: value };
+    });
+  }
   return (
     <div className="h-dvh flex justify-center items-center">
       <button
@@ -23,6 +50,19 @@ const Login = () => {
       >
         Login with Google
       </button>
+      <input
+        className="border"
+        name="email"
+        type="email"
+        onChange={handleChange}
+      />
+      <input
+        className="border"
+        name="password"
+        type="password"
+        onChange={handleChange}
+      />
+      <button onClick={loginWithEmail}>Submit</button>
     </div>
   );
 };
