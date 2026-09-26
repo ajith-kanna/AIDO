@@ -1,5 +1,11 @@
+import Login from "./auth/Login";
+
 function App() {
-  return <main />
+  return (
+    <>
+      <Login />{" "}
+    </>
+  );
 }
 
-export default App
+export default App;
