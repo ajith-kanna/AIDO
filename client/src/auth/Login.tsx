@@ -17,7 +17,7 @@ const Login = () => {
 
       setUser(result);
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message);
     }
   };
 
