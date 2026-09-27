@@ -11,7 +11,7 @@ type Input = {
 
 function Input({ className, type, icon, placeholder, ...props }: Input) {
   return (
-    <div className="rounded-2xl flex flex-row items-center pl-1 shadow-[inset_7px_7px_10px_#1b1c1f,_inset_-5px_-5px_10px_#2f3237]">
+    <div className="rounded-2xl flex flex-row items-center pl-2 shadow-[inset_7px_7px_10px_#1b1c1f,_inset_-5px_-5px_10px_#2f3237]">
       {icon}
       <input
         type={type}
