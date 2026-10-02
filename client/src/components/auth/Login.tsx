@@ -1,15 +1,15 @@
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/common/input";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
-import googleImg from "../assets/img/search.png"
-import Logo from "../assets/img/logo.png"
+import googleImg from "../../assets/img/search.png"
+import Logo from "../../assets/img/logo.png"
 import { FiLock } from "react-icons/fi";
 import type { ChangeEvent } from "react";
 import Background from "./Background";
 import { useState } from "react";
 import { auth } from "./firebase";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import { googleSignIn, validateEmail, validatePassword} from "@/common"
+import { googleSignIn, validateEmail, validatePassword} from "@/components/common/common"
 
 type FieldData = { email: string, password: string ,emailError: string, passwordError: string}
 

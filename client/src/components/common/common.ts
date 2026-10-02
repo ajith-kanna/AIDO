@@ -1,4 +1,4 @@
-import { auth, google } from "@/auth/firebase";
+import { auth, google } from "@/components/auth/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

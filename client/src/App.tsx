@@ -1,11 +1,9 @@
-import Login from "./auth/Login";
-import Register from "./auth/Register";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (
     <div className="font-primary">
-      <Register />{" "}
-      {/* <Login/> */}
+      <Dashboard />
     </div>
   );
 }
