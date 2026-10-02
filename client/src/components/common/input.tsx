@@ -18,7 +18,7 @@ function Input({ className, type, icon, error, ...props }: InputProps) {
           {...props}
         />
       </div>
-      <AnimatedContainer activeKey={error}>
+      <AnimatedContainer transition={{ duration: 0.30, ease: 'easeOut' }} activeKey={error}>
         <p className="text-[10px] 2xl:text-xs text-red-400 font-medium">{error}</p>
       </AnimatedContainer>
     </div>
