@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="font-primary">
       <Register />{" "}
+      {/* <Login/> */}
     </div>
   );
 }
