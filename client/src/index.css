@@ -11,7 +11,9 @@ input:-webkit-autofill:active {
   caret-color: white;
   transition: background-color 9999s ease-in-out 0s;
 }
+
 @theme {
   --color-primary: #25272b;
-  --font-primary: 'Poppins',sans-serif;
+  --color-secondary: #a755f7;
+  --font-primary: 'Poppins', sans-serif;
 }
