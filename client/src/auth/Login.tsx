@@ -1,7 +1,8 @@
 import { Input } from "@/components/ui/input";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
-import googleImg from "../search.png"
+import googleImg from "../assets/img/search.png"
+import Logo from "../assets/img/logo.png"
 import { FiLock } from "react-icons/fi";
 import type { ChangeEvent } from "react";
 import Background from "./Background";
@@ -55,7 +56,7 @@ const passwordError = validatePassword(userData.password);
       <Background />
       <div className=" size-full rounded-xl h-fit md:w-[450px] p-10 bg-primary flex flex-col gap-10 shadow-[10px_10px_10px_#1b1c1f,_-10px_-10px_20px_#2f3237]">
         <div className="flex flex-col justify-center items-center gap-2 ">
-          <div></div>
+          <div className="size-20 mb-2"><img src={Logo} alt="logo icon" className="size-full object-contain object-center" /></div>
           <h1 className="font-bold text-4xl">
             Aido <span className="text-[#A755F7]">Tasks</span>{" "}
           </h1>
