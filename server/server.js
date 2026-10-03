@@ -1,13 +1,17 @@
 import express from "express";
 import connection from "./src/config/connection.js";
 import dotenv from "dotenv";
+import cors from 'cors'
+import authRouter from "./src/router/auth.routers.js";
 const app = express();
 app.use(express.json());
 dotenv.config();
 
+app.use(cors("*"))
 const port = 4000;
 
 connection();
+app.use(authRouter)
 
 app.listen(port, () => {
   try {
