@@ -1,9 +1,9 @@
-const express = require("express");
-const connection = require("./src/config/connection");
-
+import express from "express";
+import connection from "./src/config/connection.js";
+import dotenv from "dotenv";
 const app = express();
 app.use(express.json());
-require('dotenv').config()
+dotenv.config();
 
 const port = 4000;
 
