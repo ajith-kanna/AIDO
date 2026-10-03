@@ -3,6 +3,7 @@ const connection = require("./src/config/connection");
 
 const app = express();
 app.use(express.json());
+require('dotenv').config()
 
 const port = 4000;
 
