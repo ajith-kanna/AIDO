@@ -9,7 +9,7 @@ dotenv.config();
 
 app.use(cors("*"))
 const port = 4000;
-
+ 
 connection();
 app.use(authRouter)
 

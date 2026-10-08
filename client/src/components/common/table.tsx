@@ -57,7 +57,7 @@ function Table<T extends Record<string, any>>({
           {data.length === 0 ? (
             <tr>
               <td
-                colSpan={Math.max(column.length, 1)}
+                colSpan={Math.max(column.length,1)}
                 className="p-8 text-center text-sm text-zinc-400"
               >
                 {emptyMessage}
