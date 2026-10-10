@@ -17,7 +17,8 @@ import {
   validatePassword,
 } from "@/components/common/common";
 import googleImg from "../../assets/img/search.png";
-import axios from "axios";
+import api from "../common/axiosApi";
+import { useNavigate } from "react-router-dom";
 type USER = {
   email: string;
   password: string;
@@ -37,6 +38,7 @@ const Register = () => {
     confirmPasswordError: "",
   });
 
+  const navigate = useNavigate();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserData((prev) => ({
@@ -48,14 +50,27 @@ const Register = () => {
     }));
   };
 
-  const handleSend = async (token) => {
+  const handleClear = () =>
+    setUserData({
+      email: "",
+      password: "",
+      confirmPassword: "",
+      emailError: "",
+      passwordError: "",
+      confirmPasswordError: "",
+    });
+
+  const handleSend = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/register", {},{
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      console.log(response);
+      const response = await api.post("/register");
+
+      if (response.status == 201) {
+        alert(response?.data?.message);
+        handleClear();
+        navigate("/login");
+      }
     } catch (error) {
-      console.log(error.message);
+      alert(error?.response?.data?.message);
     }
   };
 
@@ -73,8 +88,7 @@ const Register = () => {
         await sendEmailVerification(response?.user);
       }
       console.log(response);
-      const token = await response.user.getIdToken();
-      await handleSend(token);
+      await handleSend();
     } catch (error: any) {
       alert(error?.message);
     }
@@ -154,7 +168,7 @@ const Register = () => {
             </div>
           </div>
           <button
-            onClick={() => googleSignIn(handleSend)}
+            onClick={googleSignIn}
             className="w-full h-12 p-3 flex flex-row justify-center items-center gap-2 font-semibold transition-all duration-300 ease-in-out rounded-md text-center hover:text-[#A755F7] active:shadow-[inset_7px_7px_10px_#1b1c1f,_inset_-5px_-5px_10px_#2f3237] shadow-[10px_10px_10px_#1b1c1f,_-10px_-10px_20px_#2f3237]"
           >
             <img src={googleImg} alt="google icon" className="h-full" />

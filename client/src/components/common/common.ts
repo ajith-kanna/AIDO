@@ -1,5 +1,7 @@
 import { auth, google } from "@/components/auth/firebase";
+import axios from "axios";
 import { signInWithPopup } from "firebase/auth";
+import api from "./axiosApi";
 
 export const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const passwordRegex =
@@ -17,12 +19,19 @@ export const validatePassword = (password: string, key = "Password") => {
   return "";
 };
 
-export const googleSignIn = async (fn) => {
+const handleSend = async () => {
+    try {
+      const response = await api.post("/providerLogin")
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+export const googleSignIn = async () => {
   try {
     const response = await signInWithPopup(auth, google);
-    console.log(response);
-    const token = await response.user.getIdToken()
-    fn(token);
+    await handleSend()
   } catch (error: unknown) {
     if (error instanceof Error) {
       alert(error.message);
