@@ -90,7 +90,7 @@ const Register = () => {
       console.log(response);
       await handleSend();
     } catch (error: any) {
-      alert(error?.message);
+      error && alert(error?.message);
     }
   };
 
