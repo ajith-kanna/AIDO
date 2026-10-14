@@ -134,7 +134,13 @@ const Login = () => {
           />
           <div className="flex flex-row justify-between text-sm">
             <p>Remember me</p>
-            <button className="text-[#A755F7]">Forgot password ?</button>
+            <button
+              type="button"
+              onClick={() => navigate("/forgot-password")}
+              className="text-[#A755F7] hover:underline"
+            >
+              Forgot password ?
+            </button>
           </div>
         </div>
         <div className="flex flex-col gap-4 ">
